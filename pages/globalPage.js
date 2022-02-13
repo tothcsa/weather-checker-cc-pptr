@@ -13,6 +13,12 @@ module.exports = {
     I.waitForVisible(selector)
     I.click(selector)
     I.waitForInvisible(this.selectors.cookiesModal)
+  },
+
+  async waitForTimeout (n = 5000) {
+    I.usePuppeteerTo(`wait for timeout: ${n} ms`, async ({ page }) => {
+      await page.waitForTimeout(n)
+    })
   }
 
 }

@@ -4,7 +4,7 @@
   "description": "Weather checker with CodeceptJS and Puppeteer",
   "main": "index.js",
   "scripts": {
-    "test": "npx codeceptjs run --debug"
+    "test": "npx codeceptjs run --steps"
   },
   "repository": {
     "type": "git",
