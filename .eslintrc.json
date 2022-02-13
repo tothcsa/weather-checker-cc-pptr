@@ -1,0 +1,28 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "codeceptjs/codeceptjs": true
+  },
+  "extends": [
+    "standard",
+    "plugin:codeceptjs/recommended"
+  ],
+  "plugins": [
+    "codeceptjs"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parserOptions": {
+    "ecmaVersion": 11,
+    "sourceType": "module"
+  },
+  "rules": {
+    "no-var": "error",
+    "no-useless-constructor": "off",
+    "no-unused-expressions": "off",
+    "codeceptjs/no-pause-in-scenario": "warn"
+  }
+}

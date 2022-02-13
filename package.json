@@ -1,0 +1,32 @@
+{
+  "name": "weather-checker-cc-pptr",
+  "version": "1.0.0",
+  "description": "Weather checker with CodeceptJS and Puppeteer",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx codeceptjs run --debug"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tothcsa/weather-checker-cc-pptr.git"
+  },
+  "keywords": [
+    "weather",
+    "codeceptjs",
+    "puppeteer"
+  ],
+  "author": "Csaba Tóth",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tothcsa/weather-checker-cc-pptr/issues"
+  },
+  "homepage": "https://github.com/tothcsa/weather-checker-cc-pptr#readme",
+  "dependencies": {
+    "codeceptjs": "^3.3.0",
+    "eslint": "^7.12.1",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-codeceptjs": "^1.3.0",
+    "puppeteer": "^13.3.1",
+    "yargs": "^17.3.1"
+  }
+}
