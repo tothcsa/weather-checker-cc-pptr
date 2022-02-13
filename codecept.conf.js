@@ -14,13 +14,17 @@ exports.config = {
     Puppeteer: {
       url: 'https://weather.com/',
       show: true,
-      windowSize: '1900x1000',
-      waitForTimeout: 10000
+      windowSize: '1200x1000',
+      waitForTimeout: 10000,
+      restart: false,
+      keepBrowserState: true,
+      keepCookies: true
     }
   },
   include: {
     I: './steps_file.js',
-    globalPage: './pages/globalPage.js'
+    globalPage: './pages/globalPage.js',
+    searchFragment: './fragments/search.js'
   },
   bootstrap: null,
   mocha: {},

@@ -1,5 +1,5 @@
 // in this file you can append custom step methods to 'I' object
-const { globalPage } = inject()
+const { globalPage, searchFragment } = inject()
 
 module.exports = function () {
   return actor({
@@ -8,6 +8,14 @@ module.exports = function () {
     // It is recommended to place a general 'login' function here.
     async acceptCookies (allCookies = false) {
       await globalPage.acceptCookies(allCookies)
+    },
+
+    async searchCity (input = 'London') {
+      await searchFragment.searchCity(input)
+    },
+
+    async waitForTimeout (n = 5000) {
+      await globalPage.waitForTimeout(n)
     }
 
   })
