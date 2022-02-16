@@ -17,6 +17,21 @@ Weather checker with CodeceptJS and Puppeteer
 - Step into the project directory.
 - Run: `npm test`.
 
+### How to run with custom input?
+
+- You can set input value with environmental variable
+  - In the the project directory:
+    - Run (on Windows): `set INPUT=Lund`
+    - Then run: `npm test`
+    - Then the test location is `Lund` in that test (and the following)
+      - To remove: `set INPUT=Lund`
+      - Then the test location is `London` (default)
+- You can set input value with CodeceptJS command
+  - In the the project directory:
+    - Run (on Windows): `npm test -- --override {\"plugins\":{\"searchParameters\":{\"input\":\"Lund\"}}}`
+    - The test location is `Lund` in that test.
+      - There is no need to remove.
+
 ## Where is the test file?
 
 - `./tests/search_test.js`
