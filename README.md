@@ -23,8 +23,12 @@ Weather checker with CodeceptJS and Puppeteer
 
 ## What are the test steps?
 
-- Opens the homepage,
-- Accepts the cookies.
+The test
+
+- opens the homepage,
+- accepts the cookies,
+- launches a search,
+- does a few checks.
 
 ## Expected output
 
