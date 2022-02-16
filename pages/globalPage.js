@@ -9,7 +9,8 @@ module.exports = {
   },
 
   async acceptCookies (allCookies = true) {
-    const selector = allCookies ? this.selectors.cookiesAgree : this.selectors.cookiesRequiredOnly
+    // const selector = allCookies ? this.selectors.cookiesAgree : this.selectors.cookiesRequiredOnly
+    const selector = this.selectors.cookiesAgree
     I.waitForVisible(selector)
     I.click(selector)
     I.waitForInvisible(this.selectors.cookiesModal, 60)
