@@ -30,7 +30,7 @@ Weather checker with CodeceptJS and Puppeteer
 
 When you run the test, you'll get a similar output in case of pass:
 
-```bash
+```text
 search --
   Open main page
     I am on page "/"
