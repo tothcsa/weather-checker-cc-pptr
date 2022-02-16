@@ -15,10 +15,16 @@ exports.config = {
       url: 'https://weather.com/',
       show: true,
       windowSize: '1200x1000',
-      waitForTimeout: 10000,
+      waitForTimeout: 60000,
       restart: false,
       keepBrowserState: true,
       keepCookies: true
+    },
+    PageHelper: {
+      require: './helpers/pageHelper.js'
+    },
+    ChaiWrapper: {
+      require: 'codeceptjs-chai'
     }
   },
   include: {
@@ -30,9 +36,13 @@ exports.config = {
   mocha: {},
   name: 'weather-checker-cc-pptr',
   plugins: {
+    retryFailedStep: {
+      enabled: false
+    },
     stepTimeout: {
       enabled: true,
-      timeout: 30
+      timeout: 61
     }
-  }
+  },
+  timeout: 300
 }

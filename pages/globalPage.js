@@ -8,11 +8,12 @@ module.exports = {
     cookiesRequiredOnly: '#truste-consent-required'
   },
 
-  async acceptCookies (allCookies = false) {
-    const selector = allCookies ? this.selectors.cookiesAgree : this.selectors.cookiesAgree
+  async acceptCookies (allCookies = true) {
+    // const selector = allCookies ? this.selectors.cookiesAgree : this.selectors.cookiesRequiredOnly
+    const selector = this.selectors.cookiesAgree
     I.waitForVisible(selector)
     I.click(selector)
-    I.waitForInvisible(this.selectors.cookiesModal)
+    I.waitForInvisible(this.selectors.cookiesModal, 60)
   },
 
   async waitForTimeout (n = 5000) {
