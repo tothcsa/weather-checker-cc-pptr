@@ -6,6 +6,11 @@ Weather checker with CodeceptJS and Puppeteer
 
 - Node
 
+## Framework
+
+- CodeceptJS [https://codecept.io/]
+- codeceptjs-chai (for assertions) [https://www.npmjs.com/package/codeceptjs-chai[]
+
 ## How to install?
 
 - Clone this project.
@@ -41,9 +46,48 @@ Weather checker with CodeceptJS and Puppeteer
 The test
 
 - opens the homepage,
-- accepts the cookies,
+- accepts the cookies (turned off),
 - launches a search,
 - does a few checks.
+
+For more detailed steps take a look at the test file: `./tests/search_test.js`
+
+## About the checking
+
+After the search run, the test checks
+
+- the meta tags in the header
+  - it's important because those are not visual elements, so easy to miss them via a manual testing process.
+- the title of the page
+- the H1 tag of the page (main header)
+- the H2 tags of the page (secondary headers)
+- counts other required elements
+
+In the test file it looks like this:
+
+```javascript
+Scenario('Check many things on result page', async ({ I }) => {
+  // EXPECTATIONS:
+  // check of header:
+  await I.assertEqual(await I.getNumberOfElements(`meta[name="description"][content*="${input}"]`), 1)
+  await I.assertEqual(await I.getNumberOfElements(`meta[property="og:title"][content*="${input}"]`), 1)
+  await I.assertEqual(await I.getNumberOfElements(`meta[property="og:description"][content*="${input}"]`), 1)
+  // await I.assertEqual(await I.getNumberOfElements('meta[property="og:url"][content*="London"]'), 1)
+  await I.seeInTitle(input)
+
+  // check of body:
+  // I.see - Checks that a page contains a visible text.
+  await I.see(input, '[class*="LocationCard"]')
+  await I.assertEqual(await I.getNumberOfElements(`section[aria-label*="${input}"]`), 3)
+  await I.see(input, 'h1')
+  await I.assertEqual(await I.getNumberOfElements(`section[title*="${input}"]`), 2)
+
+  // TodayWeatherCard
+  await I.see(input, '[id*="TodayWeatherCard"] h2')
+  // todayDetails
+  await I.see(input, '[id*="todayDetails"] h2')
+})
+```
 
 ## Expected output
 
