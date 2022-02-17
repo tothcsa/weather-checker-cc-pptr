@@ -9,7 +9,7 @@ Weather checker with CodeceptJS and Puppeteer
 ## Framework
 
 - CodeceptJS [https://codecept.io/]
-- codeceptjs-chai (for assertions) [https://www.npmjs.com/package/codeceptjs-chai[]
+- codeceptjs-chai (for assertions) [https://www.npmjs.com/package/codeceptjs-chai]
 
 ## How to install?
 
@@ -29,13 +29,18 @@ Weather checker with CodeceptJS and Puppeteer
     - Run (on Windows): `set INPUT=Lund`
     - Then run: `npm test`
     - Then the test location is `Lund` in that test (and the following)
-      - To remove: `set INPUT=Lund`
+      - To remove: `set INPUT=`
       - Then the test location is `London` (default)
 - You can set input value with CodeceptJS command
   - In the the project directory:
     - Run (on Windows): `npm test -- --override {\"plugins\":{\"searchParameters\":{\"input\":\"Lund\"}}}`
     - The test location is `Lund` in that test.
       - There is no need to remove.
+
+Please pay attention for case sensitivity.  
+_Default location: London._  
+_Technical background: `./plugins/searchParameters.js`_  
+_You can search for country specific locations as well (e.g): `set INPUT=London, OH`_
 
 ## Where is the test file?
 
@@ -95,25 +100,27 @@ When you run the test, you'll get a similar output in case of pass:
 
 ```text
 search --
-  Open main page
+  Open main page, then search for Copenhagen
     I am on page "/"
-    I accept cookies
-    I wait for timeout 2000
-    I type city
-    I get number of elements "meta[name="description"][content*="London"]"
+    I wait for timeout 5000
+    I type city "Copenhagen"
+  √ OK in 10183ms
+
+  Check many things on result page
+    I get number of elements "meta[name="description"][content*="Copenhagen"]"
     I assert equal 1, 1
-    I get number of elements "meta[property="og:title"][content*="London"]"
+    I get number of elements "meta[property="og:title"][content*="Copenhagen"]"
     I assert equal 1, 1
-    I get number of elements "meta[property="og:description"][content*="London"...
+    I get number of elements "meta[property="og:description"][content*="Copenha...
     I assert equal 1, 1
-    I see in title "London"
-    I see "London", "[class*="LocationCard"]"
-    I get number of elements "section[aria-label*="London"]"
+    I see in title "Copenhagen"
+    I see "Copenhagen", "[class*="LocationCard"]"
+    I get number of elements "section[aria-label*="Copenhagen"]"
     I assert equal 3, 3
-    I see "London", "[class*="LocationCard"]"
-    I get number of elements "section[title*="London"]"
+    I see "Copenhagen", "h1"
+    I get number of elements "section[title*="Copenhagen"]"
     I assert equal 2, 2
-    I see "London", "[id*="TodayWeatherCard"] h2"
-    I see "London", "[id*="todayDetails"] h2"
-  √ OK in 17948ms
+    I see "Copenhagen", "[id*="TodayWeatherCard"] h2"
+    I see "Copenhagen", "[id*="todayDetails"] h2"
+  √ OK in 1620ms
 ```
