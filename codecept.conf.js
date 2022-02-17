@@ -42,6 +42,11 @@ exports.config = {
     stepTimeout: {
       enabled: true,
       timeout: 61
+    },
+    searchParameters: {
+      require: './plugins/searchParameters.js',
+      default: 'London',
+      enabled: true
     }
   },
   timeout: 300
